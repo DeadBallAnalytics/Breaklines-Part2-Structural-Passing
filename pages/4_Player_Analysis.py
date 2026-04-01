@@ -351,6 +351,7 @@ most to progression at both the per-pass and cumulative level.
 """, unsafe_allow_html=True)
 
 filtered = players.copy()
+
 # --------------------------------------------------
 # Featured player
 # --------------------------------------------------
@@ -938,10 +939,16 @@ with st.container(border=True):
 
     if selected_player2 != "All":
         selected_rows2 = filtered.loc[filtered["passer_name"] == selected_player2]
-        if not selected_rows2.empty:
-            featured_row2 = selected_rows2.iloc[0]
-        else:
+
+        if selected_rows2.empty:
+            team_msg = "" if selected_team2 == "All" else f" for team '{selected_team2}'"
+            st.warning(
+                f"'{selected_player2}' is not available{team_msg} under the current minimum "
+                f"passes threshold ({min_passes}). Lower the limit above to view this player's card."
+            )
             featured_row2 = filtered.sort_values("total_tiv", ascending=False).iloc[0]
+        else:
+            featured_row2 = selected_rows2.iloc[0]
     else:
         featured_row2 = filtered.sort_values("total_tiv", ascending=False).iloc[0]
 
