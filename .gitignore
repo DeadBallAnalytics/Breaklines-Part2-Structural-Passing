@@ -3,6 +3,7 @@ __pycache__/
 *.py[codz]
 *$py.class
 assets/player_photos_cropped/
+.DS_Store
 # C extensions
 *.so
 
