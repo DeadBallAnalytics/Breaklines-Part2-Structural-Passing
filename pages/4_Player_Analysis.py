@@ -1146,36 +1146,6 @@ with st.container(border=True):
         layer="below"
     )
 
-    # # Left photo panel
-    # fig_card.add_shape(
-    #     type="rect",
-    #     xref="paper", yref="paper",
-    #     x0=0.01, x1=0.25, y0=0.55, y1=0.84,
-    #     line=dict(color="#E5E7EB", width=1),
-    #     fillcolor="#FFFFFF",
-    #     layer="below"
-    # )
-
-    # # Text/stats panel
-    # fig_card.add_shape(
-    #     type="rect",
-    #     xref="paper", yref="paper",
-    #     x0=0.01, x1=0.25, y0=0.06, y1=0.5,
-    #     line=dict(color="#E5E7EB", width=1),
-    #     fillcolor="#FFFFFF",
-    #     layer="below"
-    # )
-
-    # # Right top flag panel
-    # fig_card.add_shape(
-    #     type="rect",
-    #     xref="paper", yref="paper",
-    #     x0=0.84, x1=0.98, y0=0.88, y1=1.00,
-    #     line=dict(color="#111827", width=0),
-    #     fillcolor="#00E68A", opacity=0.45,
-    #     layer="below"
-    # )
-
     # --------------------------------------------------
     # Images
     # --------------------------------------------------
@@ -1301,31 +1271,7 @@ with st.container(border=True):
                 sizing="contain",
             )
         )
-    # # Footer signature
-    # fig_card.add_annotation(
-    #     x=0.98, y=0.02,
-    #     xref="paper", yref="paper",
-    #     text="Dead Ball Analytics · Structural Passing",
-    #     showarrow=False,
-    #     xanchor="right",
-    #     font=dict(size=11, color="#6B7280")
-    # )
 
-    # --------------------------------------------------
-    # Render
-    # --------------------------------------------------
-    # st.plotly_chart(fig_card, use_container_width=True)
-    # st.plotly_chart(fig_card, use_container_width=False, config={"displayModeBar": False})
-    # --------------------------------------------------
-    # Download as HTML
-    # --------------------------------------------------
-    # card_html = fig_card.to_html(full_html=True, include_plotlyjs="cdn")
-    # st.download_button(
-    #     label="Download player card (HTML)",
-    #     data=card_html,
-    #     file_name=f"{featured_row['passer_name'].replace(' ', '_')}_player_card.html",
-    #     mime="text/html",
-    # )
     from reportlab.platypus import SimpleDocTemplate, Image as RLImage
     from reportlab.lib.pagesizes import A4
     from reportlab.lib.units import inch
@@ -1360,7 +1306,7 @@ with st.container(border=True):
         st.download_button(
             label="Download player card (PDF)",
             data=pdf_bytes,
-            file_name=f"{featured_row['passer_name'].replace(' ', '_')}_player_card.pdf",
+            file_name=f"{featured_row2['passer_name'].replace(' ', '_')}_player_card.pdf",
             mime="application/pdf",
         )
     else:
