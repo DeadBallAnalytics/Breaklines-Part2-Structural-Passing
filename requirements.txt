@@ -1,8 +1,9 @@
 streamlit
 numpy
-pathlib
 pillow
 pandas
 plotly
-reportlab
+scikit-learn
+shapely
 kaleido
+reportlab
