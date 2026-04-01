@@ -1041,7 +1041,7 @@ with st.container(border=True):
         use_container_width=False,
         config={"displayModeBar": False}
     )
-
+    import os
     IS_CLOUD = os.environ.get("STREAMLIT_SERVER_HEADLESS") == "true"
     if not IS_CLOUD:
         pdf_bytes = fig_card.to_image(

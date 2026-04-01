@@ -1348,7 +1348,6 @@ with st.container(border=True):
     )
 
     import os
-
     IS_CLOUD = os.environ.get("STREAMLIT_SERVER_HEADLESS") == "true"
     if not IS_CLOUD:
         pdf_bytes = fig_card.to_image(
