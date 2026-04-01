@@ -375,17 +375,9 @@ with st.container(border=True):
         template="plotly_white",
         showlegend=True,
         legend_title="Pass Archetype",
-        # Title
-        # title=dict(
-        #     text="Distribution of Structural Pass Archetypes",
-        #     x=0.0,
-        #     xanchor="left",
-        #     font=dict(size=18, color="#111827"),
-        # ),
 
         # Axes
         xaxis=dict(
-            title="",
             tickfont=dict(size=14, color="#374151"),
             showticklabels=False,
             showgrid=False,
@@ -407,7 +399,6 @@ with st.container(border=True):
         # Bar spacing (IMPORTANT)
         bargap=0.015,        # space between bars
         bargroupgap=0.001,
-
         height=420,
     )
 
@@ -415,15 +406,7 @@ with st.container(border=True):
     # Slight axis range padding (for labels)
     # -------------------------------
     fig.update_yaxes(range=[0, pass_type_summary["percentage"].max() * 1.15])
-
-    # fig.add_annotation(
-    #     x=pass_type_summary.iloc[0]["pass_type_label"],
-    #     y=pass_type_summary["percentage"].max(),
-    #     text="Most common",
-    #     showarrow=False,
-    #     yshift=20,
-    #     font=dict(size=11, color="#6B7280")
-    # )
+    fig.update_xaxes(title="")
 
     st.plotly_chart(fig)#, width='stretch')
 
