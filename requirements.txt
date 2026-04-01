@@ -4,7 +4,6 @@ pathlib
 pillow
 pandas
 plotly
-regex
 unicodedata
 difflib
 reportlab
