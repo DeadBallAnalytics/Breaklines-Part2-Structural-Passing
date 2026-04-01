@@ -2,7 +2,6 @@ streamlit
 numpy
 pathlib
 pillow
-json
 pandas
 plotly
 sklearn
