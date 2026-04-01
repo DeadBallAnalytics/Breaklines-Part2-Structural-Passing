@@ -1,0 +1,22 @@
+{
+  "n_matches": 64,
+  "n_teams": 32,
+  "n_passes": 41078,
+  "mean_tiv": 0.0,
+  "median_tiv": -0.0091,
+  "top_pass_type": "circulatory",
+  "top_pass_type_count": 14144,
+  "top_pass_type_percentage": 0.3443,
+  "top_team_name": "Germany",
+  "top_team_total_tiv": 119.0241,
+  "top_team_mean_tiv": 0.0961,
+  "top_player_name": "John Stones",
+  "top_player_team": "England",
+  "top_player_total_tiv": 74.0343,
+  "top_player_mean_tiv": 0.2097,
+  "top_duo_label": "Youssouf Sabaly \u2192 Kr\u00e9pin Diatta",
+  "top_duo_team": "Senegal",
+  "top_duo_delta_tiv": 0.8323,
+  "top_duo_mean_tiv": 0.6552,
+  "top_duo_passes": 12
+}
