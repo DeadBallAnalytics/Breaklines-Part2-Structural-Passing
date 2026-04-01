@@ -1347,54 +1347,24 @@ with st.container(border=True):
         config={"displayModeBar": False}
     )
 
-    pdf_bytes = fig_card.to_image(
-        format="pdf",
-        width=CARD_W,
-        height=CARD_H,
-        scale=1
-    )
+    import os
 
-    # # Read image size with PIL
-    # img_stream = io.BytesIO(img_bytes)
-    # pil_img = Image.open(img_stream)
-    # img_width, img_height = pil_img.size
+    IS_CLOUD = os.environ.get("STREAMLIT_SERVER_HEADLESS") == "true"
+    if not IS_CLOUD:
+        pdf_bytes = fig_card.to_image(
+            format="pdf",
+            width=CARD_W,
+            height=CARD_H,
+            scale=1
+        )
 
-    # # PDF buffer
-    # buffer = io.BytesIO()
-    # doc = SimpleDocTemplate(
-    #     buffer,
-    #     pagesize=A4,
-    #     rightMargin=30,
-    #     leftMargin=30,
-    #     topMargin=30,
-    #     bottomMargin=30,
-    # )
-
-    # # Available drawable area
-    # page_width, page_height = A4
-    # max_width = page_width - doc.leftMargin - doc.rightMargin
-    # max_height = page_height - doc.topMargin - doc.bottomMargin
-
-    # # Scale to fit
-    # scale = min(max_width / img_width, max_height / img_height)
-
-    # pdf_img_width = img_width * scale
-    # pdf_img_height = img_height * scale
-
-    # # Recreate stream for ReportLab
-    # img_stream = io.BytesIO(img_bytes)
-    # img = RLImage(img_stream, width=pdf_img_width, height=pdf_img_height)
-
-    # doc.build([img])
-
-    # pdf_bytes = buffer.getvalue()
-    # buffer.close()
-
-    st.download_button(
-        label="Download player card (PDF)",
-        data=pdf_bytes,
-        file_name=f"{featured_row['passer_name'].replace(' ', '_')}_player_card.pdf",
-        mime="application/pdf",
-    )
+        st.download_button(
+            label="Download player card (PDF)",
+            data=pdf_bytes,
+            file_name=f"{featured_row['passer_name'].replace(' ', '_')}_player_card.pdf",
+            mime="application/pdf",
+        )
+    else:
+        st.info("PDF download is disabled in the cloud version.")
 
 render_page_footer()

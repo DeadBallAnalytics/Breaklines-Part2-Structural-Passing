@@ -1042,17 +1042,22 @@ with st.container(border=True):
         config={"displayModeBar": False}
     )
 
-    pdf_bytes = fig_card.to_image(
-        format="pdf",
-        width=CARD_W,
-        height=CARD_H,
-        scale=1
-    )
-    st.download_button(
-        label="Download duo card as PDF",
-        data=pdf_bytes,
-        file_name=f"{featured_row['duo_label']}_duo_card.pdf",
-        mime="application/pdf",
-    )
+    IS_CLOUD = os.environ.get("STREAMLIT_SERVER_HEADLESS") == "true"
+    if not IS_CLOUD:
+        pdf_bytes = fig_card.to_image(
+            format="pdf",
+            width=CARD_W,
+            height=CARD_H,
+            scale=1
+        )
+
+        st.download_button(
+            label="Download player card (PDF)",
+            data=pdf_bytes,
+            file_name=f"{featured_row['passer_name'].replace(' ', '_')}_player_card.pdf",
+            mime="application/pdf",
+        )
+    else:
+        st.info("PDF download is disabled in the cloud version.")
 
 render_page_footer()
