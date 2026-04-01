@@ -4,6 +4,4 @@ pathlib
 pillow
 pandas
 plotly
-unicodedata
-difflib
 reportlab
