@@ -384,9 +384,8 @@ with st.container(border=True):
         ),
 
         yaxis=dict(
-            title="Share of passes",
             tickformat=".0%",
-            titlefont=dict(size=14, color="#374151"),
+            title=dict(text="Share of passes", font=dict(size=14, color="#374151")),
             tickfont=dict(size=13, color="#374151"),
             showgrid=True,
             gridcolor="#E5E7EB",
